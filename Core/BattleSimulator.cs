@@ -314,7 +314,7 @@ namespace Risk.Dice
             }
 
             BattleConfig currentBattleConfig = _battleConfig.WithNewUnits(_remainingAttackCount, _remainingDefendCount).WithoutStopUntil();
-            BattleInfo battleInfo = BattleCache.Get(_roundConfig, currentBattleConfig);
+            FastBattleInfo battleInfo = new FastBattleInfo(currentBattleConfig, _roundConfig);
             battleInfo.Calculate();
 
             if (_balanceConfig != null)
@@ -376,7 +376,7 @@ namespace Risk.Dice
             _remainingDefendCount -= defendLossCount;
         }
 
-        private void ApplyOddsBasedBattle (BattleInfo battleInfo)
+        private void ApplyOddsBasedBattle (FastBattleInfo battleInfo)
         {
             BattleConfig battleConfig = battleInfo.BattleConfig;
 
