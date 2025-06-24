@@ -24,7 +24,6 @@
  */
 
 using System;
-using Sirenix.OdinInspector;
 using Risk.Dice.Utility;
 using UnityEngine;
 
@@ -37,8 +36,7 @@ namespace Risk.Dice
     [Serializable]
     public struct BattleConfig : IEquatable<BattleConfig>
     {
-        [PropertyTooltip("This does NOT include the extra attack unit that stays behind")]
-        [SerializeField] [LabelText("Attack Unit Count (?)")] private int _attackUnitCount;
+        [SerializeField] private int _attackUnitCount;
         [SerializeField] private int _defendUnitCount;
         [SerializeField] private int _stopUntil;
 

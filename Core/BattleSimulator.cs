@@ -25,7 +25,6 @@
 
 using System;
 using System.Collections.Generic;
-using Sirenix.OdinInspector;
 using Risk.Dice.RNG;
 using Risk.Dice.Utility;
 using UnityEngine;
@@ -95,8 +94,8 @@ namespace Risk.Dice
         public int SimulatedAttackDiceRollCount => _simulatedAttackDiceRollCount;
         public int SimulatedDefendDiceRollCount => _simulatedDefendDiceRollCount;
 
-        [ShowInInspector] public bool IsComplete => _remainingAttackCount <= _battleConfig.StopUntil || _remainingDefendCount == 0;
-        [ShowInInspector] public bool IsAttackerWin => IsComplete && _remainingDefendCount == 0;
+        public bool IsComplete => _remainingAttackCount <= _battleConfig.StopUntil || _remainingDefendCount == 0;
+        public bool IsAttackerWin => IsComplete && _remainingDefendCount == 0;
 
         public BattleSimulator (int attackUnitCount, int defendUnitCount) : this(new BattleConfig(attackUnitCount, defendUnitCount, 0))
         {

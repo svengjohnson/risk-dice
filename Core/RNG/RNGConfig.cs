@@ -24,7 +24,6 @@
  */
 
 using System;
-using Sirenix.OdinInspector;
 using Risk.Dice.Utility;
 using UnityEngine;
 
@@ -56,12 +55,12 @@ namespace Risk.Dice.RNG
     [Serializable]
     public sealed class RNGConfig : IEquatable<RNGConfig>
     {
-        [SerializeField] [LabelText("RNG Type")] private RNGType _rngType;
-        [SerializeField] [InlineButton(nameof(RandomizeSeeds), "Randomize")] [ValidateInput(nameof(ValidateSeedMode))] private SeedMode _seedMode;
-        [SerializeField] [ShowIf(nameof(_seedMode), SeedMode.Int)] private int _intSeed;
-        [SerializeField] [ShowIf(nameof(ShowUlong))] private ulong _ulongSeed1;
-        [SerializeField] [ShowIf(nameof(_seedMode), SeedMode.Ulong2)] private ulong _ulongSeed2;
-        [SerializeField] [ShowIf(nameof(_seedMode), SeedMode.UInts)] private uint[] _uintsSeed;
+        [SerializeField] private RNGType _rngType;
+        [SerializeField] private SeedMode _seedMode;
+        [SerializeField] private int _intSeed;
+        [SerializeField] private ulong _ulongSeed1;
+        [SerializeField] private ulong _ulongSeed2;
+        [SerializeField] private uint[] _uintsSeed;
 
         public bool IsValid => ValidateSeedMode();
 
